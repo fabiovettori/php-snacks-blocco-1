@@ -20,23 +20,19 @@ Olimpia Milano - Cantù | 55 - 60 -->
         ['Chigago Bulls', 'Milwaukee Bucks', 60, 59],
     ];
 
-    $array = ['aa', 'bb', 'cc'];
-
-    $string = implode('-', $array);
-    $pos1 = strpos($string, '-');
-    $pos2 = strpos($string, '-', ($pos1 + 1));
-
-    $output = substr_replace($string, '/', $pos2, 1);
-
     $match = '';
     for ($i=0; $i < count( $matches ); $i++) {
-
+        // stampo la stringa completa del march aggiungendo il '-' tra i vari dati del match
         $full_string = implode(' - ', $matches[$i]);
 
+        // trovo la posizione del primo '-'
         $pos1 = strpos($full_string, '-');
+        // trovo la posizione del secondo '-' utilizzando lo stesso metodo ma aggiungendo un offset alla ricera
         $pos2 = strpos($full_string, '-', ($pos1 + 1));
+        // nota la poszione del secondo '-' lo vado a sostituire con n '/'
         $output = substr_replace($full_string, '/', $pos2, 1);
 
+        // stampo il risultato nell'HTML definendo una variabile di output
         $match .= '<li>' . $output . '</li>';
     };
 
